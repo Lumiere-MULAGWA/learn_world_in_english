@@ -26,3 +26,9 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python script.py
+      - name: Cache NLTK
+        uses: actions/cache@v4
+        with:
+          path: ~/nltk_data
+          key: nltk-wordnet
+
