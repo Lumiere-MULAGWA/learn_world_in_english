@@ -62,7 +62,7 @@ def send_to_telegram(message: str) -> None:
 
 def main() -> None:
     ensure_wordnet()
-
+    WORDS_PER_DAY = 10
     words = get_random_words_with_definitions(WORDS_PER_DAY)
 
     lines = ["📘 *10 English Words of the Day*\n"]
