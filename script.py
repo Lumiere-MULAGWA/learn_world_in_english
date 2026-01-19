@@ -15,15 +15,21 @@ def ensure_wordnet() -> None:
     except LookupError:
         nltk.download("wordnet")
         nltk.download("omw-1.4")
-
+        
 def get_random_word_with_definition() -> tuple[str, str]:
-    words = list({lemma.name().replace("_", " ") for lemma in wn.all_lemmas("eng")})
-    random.shuffle(words)
+    synsets = list(wn.all_synsets("n"))
 
-    for word in words:
-        synsets = wn.synsets(word)
-        if synsets:
-            return word, synsets[0].definition()
+    random.shuffle(synsets)
+
+    for synset in synsets:
+        definition = synset.definition()
+        lemmas = synset.lemmas()
+
+        if not lemmas or not definition:
+            continue
+
+        word = lemmas[0].name().replace("_", " ")
+        return word, definition
 
     raise RuntimeError("No valid word found")
 
