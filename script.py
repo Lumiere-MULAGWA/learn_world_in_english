@@ -8,6 +8,8 @@ def main():
     print(f"--- DEBUG CONFIGURATION ---")
     print(f"Token présent : {'OUI' if TOKEN else 'NON (VIDE)'}")
     print(f"Chat ID présent : {'OUI' if CHAT_ID else 'NON (VIDE)'}")
+    print(f"Token présent : {TOKEN}")
+    print(f"chat_id présent : {CHAT_ID}")
     
     if not TOKEN:
         print("ERREUR : Le script s'arrête car le token est vide.")
