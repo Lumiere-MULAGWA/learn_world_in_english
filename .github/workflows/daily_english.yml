@@ -31,12 +31,6 @@ jobs:
         with:
           path: ~/nltk_data
           key: nltk-wordnet
-      - name: Commit used words
-        run: |
-          git config user.name "lumiere-MULAGWA"
-          git config user.email "21mb358@esisalama.org"
-          git add used_words.json
-          git commit -m "chore: update used words" || exit 0
-          git push
+
 
 
